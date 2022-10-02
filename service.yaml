@@ -7,7 +7,7 @@ spec:
     - port: 3306
       nodePort: 30011
   selector:
-    app: mysql
+    app: data-platform-common-settings-mysql-kube
   type: NodePort
 ---
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
@@ -17,16 +17,16 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: mysql
+      app: data-platform-common-settings-mysql-kube
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: mysql
+        app: data-platform-common-settings-mysql-kube
     spec:
-      nodeName: mysql-data
-      hostname: mysql-data
+      nodeName: mysql-common
+      hostname: mysql-common
       containers:
         - image: mariadb:10.6
           name: data-platform-common-settings-mysql-kube
@@ -54,7 +54,7 @@ spec:
             claimName: data-platform-common-settings-mysql-kube-pv-claim
         - name: initdb
           hostPath:
-            path: /mnt/mysql_init
+            path: /mnt/data-platform-common-settings-mysql-kube-init
 ---
 # MYSQL
 kind: PersistentVolume
@@ -85,3 +85,4 @@ spec:
   resources:
     requests:
       storage: 1Gi
+
