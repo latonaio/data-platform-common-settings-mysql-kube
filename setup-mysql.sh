@@ -6,8 +6,8 @@
 #   delete   Choose [Option2] from [database | table]
 #   grant    Do not Choose [Option2]
 
-DB_ROOT_NAME="XXXXXXXX"# DBのルートユーザーを指定
-DB_ROOT_PASSWORD="XXXXXXXX"#DBのルートパスワードを指定
+DB_ROOT_NAME="XXXXXXXX" # DBのルートユーザーを指定
+DB_ROOT_PASSWORD="XXXXXXXX" #DBのルートパスワードを指定
 DB_USER_NAME="XXXXXXXX" # DBのユーザー名を指定
 DB_USER_PASSWORD="XXXXXXXX" # DBのパスワードを指定
 POD_NAME="data-platform-common-settings-mysql-kube" # Podの名前を指定
@@ -83,4 +83,3 @@ case "$1" in
   *)
     echo "Operation is not defined!";;
 esac
-

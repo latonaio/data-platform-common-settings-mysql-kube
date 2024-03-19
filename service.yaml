@@ -25,10 +25,10 @@ spec:
       labels:
         app: data-platform-common-settings-mysql-kube
     spec:
-      nodeName: worker
+      nodeName: mysql-common
       hostname: mysql-common
       containers:
-        - image: mariadb:10.6
+        - image: mariadb:11.3.2
           name: data-platform-common-settings-mysql-kube
           env:
             # Use secret in real usage
@@ -85,4 +85,3 @@ spec:
   resources:
     requests:
       storage: 1Gi
-
